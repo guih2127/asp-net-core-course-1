@@ -1,0 +1,49 @@
+1 - Criando Uma Aplicação com ASP .NET Core
+	- Criação de uma aplicação .NET com o terminal.
+	- Separação de responsabilidades: Classes e Interfaces.
+	- Injeção de dependências, tornando desnecessário instanciar certas classes e
+	facilitando a manutenção do código.
+	- Ciclo de vida de metódos de serviço da injeção de dependências.
+
+2 - Criando o Projeto ASP .NET Core MVC
+	- Estrutura: Views, Models, Controllers e Padrão MVC.
+	- TempData: Dicionário para passar informações específicas do Controller para a View.
+	- Mudança da rota padrão da aplicação.
+	- Aplicações .NET Core ou .NET Framework?
+	- Criar aplicações para o .NET Core nas seguintes situações:
+		- É necessário desenvolver a aplicação em Windows, Linux ou MacOS.
+		- É necessário executar a aplicação em Windows, Linux ou MacOS.
+		- São necessários microsserviços.
+		- É necessário rodar a aplicação web em contêineres Docker.
+		- São necessários aplicações web escalãveis e de grande performance.
+		- São necessários componentes .NET com versões "lado-a-lado".
+	- Criar aplicações para o .NET Framework nas seguintes situações:
+		- Já é utilizado o .NET Framework na replicação atual.
+		- São utilizados componentes .NET de terceiros.
+		- São utilizados pacotes .NET Framework do NuGet que ainda não existem para .NET Core.
+		- São utilizadas tecnologias .NET que ainda não existem para .NET Core.
+	- Contêineres: Um contêiner é um ambiente virtual isolado onde rodam aplicações. O mais indicado
+		para esse tipo de implementação é o .NET Core, por ser modular e ter uma imagem menor
+		do que a do .NET Framework.
+	- Microsserviços: Microsserviço é uma técnica de desenvolvimento de software onde a arquitetura
+		da aplicação é formada por um conjunto de serviços independentes. Projetos para .NET Core
+		são ideais para arquitetura de microsserviços.
+	- Multiplataforma: O .NET Core dá suporte ao desenvolvimento em múltiplos sistemas operacionais.
+
+3 - Banco de Dados
+	- Configuração do SQL Server e Connection String, criação do Banco de Dados.
+	- Code First: Criação de classes e, depois, migração utilizando o EF Core.
+	- Add-Migration -> Update-Database
+	- Migrate() -> Metódo que verifica se o banco de dados já foi criado na inicialização da aplicação.
+	- A vantagem de utilizar o Migrate() e não o EnsureCreated() é que o Migrate(), além de criar
+	o banco e seus objetos utilizandos as entidades e mapeamentos, ele utiliza as migrações.
+	- Para lermos configurações do ASP .Net Core em um controller não precisamos utilizar a injeção
+	de dependências, pois o IConfiguration vem registrado automaticamente na injeção de dependências.
+	Sendo assim, temos apenas que adicionar o parâmetro IConfiguration no construtor do controller 
+	para obtermos as configurações.
+
+4 - Exibindo o Catálogo de Produtos
+	- Criação da classe DataService para acesso ao DB e inclusão dela na injeção de dependências.
+	- Inserção de carga no DB com um arquivo json.
+	- Programar para interfaces: Diminuição do acomplamento e dependência entre as classes.
+	- Padrão Repository para acesso à dados.
